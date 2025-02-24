@@ -7,5 +7,16 @@
 </head>
 <body>
     aqui ficara a home
+    {% if request.user.is_authenticated %}
+    <h1>Olá, {{ request.user.username }}</h1>
+    <form method="post" action="{% url 'user:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    
+    {% else %}
+        <a href="{% url 'user:login' %}">Login</a>
+    {% endif %}
+
 </body>
 </html>

@@ -21,5 +21,6 @@ from .view import homepage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="homepage"),
+    path("users/", include("user.urls")),
     path("accounts/", include("django.contrib.auth.urls"))
 ]
